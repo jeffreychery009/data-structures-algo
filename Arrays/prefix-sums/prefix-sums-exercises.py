@@ -75,3 +75,19 @@ k = 3
 solution = Solution()
 print(solution.subarray(nums, k)) # Output: 2
 
+
+# Problem 4
+# Left and Right Sum Differences
+
+def leftRightSum(nums):
+    res = [0] * (len(nums))
+
+    prefix = 0
+    for i in range(len(nums)):
+        res[i] = prefix
+        prefix += nums[i]
+
+    postfix = 0
+    for i in range(len(nums) - 1, -1, -1):
+        res[i] = abs(res[i] - postfix)
+        postfix += nums[i]

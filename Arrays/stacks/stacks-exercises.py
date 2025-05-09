@@ -14,6 +14,7 @@ print(reverseString('hello')) # Simulating the answer
 
 # Problem 2
 # Reverse a List
+# Given a list, return a new list that is the reverse of the original list
 def reverseList(lst):
     stack = []
     for num in lst:

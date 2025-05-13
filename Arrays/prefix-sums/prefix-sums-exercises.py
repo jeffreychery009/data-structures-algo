@@ -55,17 +55,16 @@ print(solution.getPivotIndex(nums)) # Output: 3
 class Solution:
     def subarray(self, nums, k: int) -> int:
         
-        prefix_sum_count = {0:1}
+        prefix_sum_count = {0:1} # Check if the prefix sum is 0, if so, add 1 to the count
         prefix_sum = 0
         count = 0
 
-
+        # Iterate through the array
         for i in range(len(nums)):
             prefix_sum += nums[i]
-            if prefix_sum - k in prefix_sum_count:
-                count += prefix_sum_count[prefix_sum - k]
-            prefix_sum_count[prefix_sum] = prefix_sum_count.get(prefix_sum, 0) + 1
-        
+            if prefix_sum - k in prefix_sum_count: # Check if the prefix sum is in the dictionary
+                count += prefix_sum_count[prefix_sum - k] # Add the count of the prefix sum to the count
+            prefix_sum_count[prefix_sum] = prefix_sum_count.get(prefix_sum, 0) + 1 # Add the prefix sum to the dictionary
         return count
 
             
@@ -76,7 +75,7 @@ solution = Solution()
 print(solution.subarray(nums, k)) # Output: 2
 
 
-# Problem 4
+# Problem 5
 # Left and Right Sum Differences
 
 def leftRightSum(nums):

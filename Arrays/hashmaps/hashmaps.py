@@ -46,16 +46,16 @@ class HashMap:
     def get(self, key):
         index = self.hash(key)
 
-        while self.map[index] != None:
-            if self.map[index].key == key:
+        while self.map[index] != None:  # Check if it's not empty
+            if self.map[index].key == key: 
                 return self.map[index].val
-            index += 1
-            index = index % self.capacity
+            index += 1 
+            index = index % self.capacity 
         return None
     
     # Remove the key
     def remove(self, key):
-        if not self.get(key):
+        if not self.get(key): 
             return
         
         index = self.hash(key)

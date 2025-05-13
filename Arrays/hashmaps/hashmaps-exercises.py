@@ -4,7 +4,7 @@
 
 class solution:
     def hasduplicate(self, nums: list[int]) -> bool:
-        if len(nums) == 0:
+        if len(nums) == 0: # Edge case
             return False
 
         countmap = {}
@@ -21,8 +21,8 @@ class solution:
 
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        if len(s) != len(t):
-            return False
+        if len(s) != len(t): # Edge case
+            return False 
         
         map = [0] * 26
         for i in range(len(s)):
@@ -54,3 +54,20 @@ class Solution:
         
         
         
+# Problem 4
+# Group Anagrams
+# Given an array of strings strs, group the anagrams together. You can return the answer in any order.
+
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+
+        res = defaultdict(list)
+
+        for str in strs:
+            count = [0] * 26
+
+            for c in str:
+                count[ord(c) - ord('a')] += 1
+            key = tuple(count)
+            res[key].append(str)
+        return res.values()

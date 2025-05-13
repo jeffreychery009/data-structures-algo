@@ -3,8 +3,8 @@
 
 def reverseString(s):
     stack = []
-    for char in s:
-        stack.append(char)
+    for c in s:
+        stack.append(c)
     reverse_str = ''
     while stack:
         reverse_str += stack.pop()
@@ -90,7 +90,7 @@ def validParentheses(s):
         if char in '([{':
             stack.append(char)
         if char in ')]}':
-            if len(stack) == 0:
+            if len(stack) == 0: # Edge case. If the stack is empty, return False
                 return False
             top = stack.pop()
             if mapping[char] != top:

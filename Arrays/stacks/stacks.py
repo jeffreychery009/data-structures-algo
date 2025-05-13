@@ -19,7 +19,7 @@ class Stack:
     def __init__(self):
         self.items = deque()
 
-    def isEmpty(self):
+    def isEmpty(self) -> bool:
         return len(self.items) == 0
     
     def push(self, item):

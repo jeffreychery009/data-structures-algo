@@ -30,7 +30,7 @@ def containsDuplicates(nums, k):
     L = 0
 
     for R in range(len(nums)):
-        if R - L + 1 > k:
+        if R - L > k:
             window.remove(nums[L])
         L += 1
         if nums[R] in window:
@@ -39,6 +39,29 @@ def containsDuplicates(nums, k):
     return False
 
 
+# Sliding Window Minimum Sum
+# Find the minimum sum of a subarray of size k
+# Here we use two pointers to keep track of the current sum and the minimum sum and a sliding window to keep track of the subarray
+# Time Complexity: O(n)
+# Space Complexity: O(1)
+def findShortest(nums, sum):
+    L = 0
+    total = 0
+    length = float("inf")
 
+    for R in range(len(nums)):
+        total += nums[R]
+        while total >= sum:
+            total -= nums[L]
+            L+=1
+            length = min(length, R - L + 1)
+    return 0 if length == float("inf") else length
+        
+
+
+
+
+        
+        
 
 
